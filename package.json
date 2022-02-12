@@ -1,0 +1,27 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "build landing page with jonas smedthmann instructor",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/styles.css",
+    "watch:sass": "node-sass sass/main.scss css/styles.css -w",
+    "live": "live-server --port=8081 --browser=chrome",
+    "dev": "npm-run-all --parallel live watch:sass",
+    "compile:css": "node-sass sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/icon-fonts.css css/style.comp.css",
+    "prefix:css": "postcss css/style.concat.css --use autoprefixer -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build": "npm-run-all compile:css concat:css prefix:css compress:css"
+  },
+  "author": "minh.ng",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "concat": "^1.0.3",
+    "node-sass": "^6.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^4.1.1"
+  },
+  "dependencies": {}
+}
